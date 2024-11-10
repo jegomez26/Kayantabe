@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/editTextServiceName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Service Name"
+            android:inputType="text"
+            android:textSize="18sp"
+            android:padding="16dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/et_bg"/>
+
+        <EditText
+            android:id="@+id/editTextServiceDescription"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:hint="Service Description"
+            android:inputType="textMultiLine"
+            android:textSize="18sp"
+            android:padding="16dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/et_bg"/>
+
+        <EditText
+            android:id="@+id/editTextServicePrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Price"
+            android:inputType="numberDecimal"
+            android:textSize="18sp"
+            android:padding="16dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/et_bg"/>
+
+        <Button
+            android:id="@+id/btnSaveService"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save Service"/>
+    </LinearLayout>
+
+
+</LinearLayout>
