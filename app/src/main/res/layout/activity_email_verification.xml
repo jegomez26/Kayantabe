@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".EmailVerificationActivity">
+
+    <!-- Title for the activity -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Verify Your Email"
+        android:textSize="32sp"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:paddingBottom="16dp" />
+
+    <!-- Instruction for email verification -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="We’ve sent a verification link to your email. Please check your inbox and click on the link to verify your account."
+        android:textSize="18sp"
+        android:paddingBottom="24dp" />
+
+    <!-- Check verification button -->
+    <Button
+        android:id="@+id/btnCheckVerification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="I Verified My Email"
+        android:textSize="18sp"
+        android:padding="16dp"/>
+
+</LinearLayout>

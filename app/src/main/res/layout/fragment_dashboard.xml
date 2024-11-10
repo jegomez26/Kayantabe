@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".ui.admin_dashboard.DashboardFragment">
+
+    <!-- Title of the Dashboard -->
+    <TextView
+        android:id="@+id/dashboardTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Admin Dashboard"
+        android:textSize="24sp"
+        android:fontFamily="sans-serif-medium"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="20dp"
+        android:textColor="#000000"/>
+
+    <!-- Card for Applicants -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/applicantsCard"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@id/dashboardTitle"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginHorizontal="8dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/applicantsLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Applicants"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="#555555"/>
+
+            <TextView
+                android:id="@+id/applicantsCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="28sp"
+                android:fontFamily="sans-serif"
+                android:textColor="#000000"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Card for Service Providers -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/serviceProvidersCard"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@id/applicantsCard"
+        android:layout_marginBottom="10dp"
+        android:layout_marginHorizontal="8dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/serviceProvidersLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Service Providers"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="#555555"/>
+
+            <TextView
+                android:id="@+id/serviceProvidersCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="28sp"
+                android:fontFamily="sans-serif"
+                android:textColor="#000000"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Card for Customers -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/customersCard"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@id/serviceProvidersCard"
+        android:layout_marginBottom="10dp"
+        android:layout_marginHorizontal="8dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/customersLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Customers"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="#555555"/>
+
+            <TextView
+                android:id="@+id/customersCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="28sp"
+                android:fontFamily="sans-serif"
+                android:textColor="#000000"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

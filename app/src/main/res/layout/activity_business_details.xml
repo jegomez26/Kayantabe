@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".BusinessDetailsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Title for the activity -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Business Details"
+            android:textSize="32sp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:paddingBottom="16dp" />
+
+        <!-- Business Name -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Business Name"
+            android:textSize="18sp"
+            android:paddingTop="8dp" />
+        <EditText
+            android:id="@+id/etBusinessName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter business name"
+            android:layout_marginBottom="15dp"
+            android:textSize="18sp"
+            android:padding="16dp"
+            android:background="@drawable/et_bg"/>
+
+        <!-- Business location section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Business Location"
+            android:textSize="18sp"
+            android:paddingTop="8dp" />
+        <!-- Province (uneditable) -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Province"
+            android:textSize="18sp"
+            android:paddingTop="8dp" />
+        <EditText
+            android:id="@+id/etProvince"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pampanga"
+            android:textSize="18sp"
+            android:padding="16dp"
+            android:background="@drawable/et_bg"
+            android:focusable="false"
+            android:clickable="false"/>
+
+        <!-- City (uneditable) -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="City"
+            android:textSize="18sp"
+            android:paddingTop="8dp" />
+        <EditText
+            android:id="@+id/etCity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Angeles City"
+            android:textSize="18sp"
+            android:padding="16dp"
+            android:background="@drawable/et_bg"
+            android:focusable="false"
+            android:clickable="false"/>
+
+        <!-- Barangay Spinner -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Barangay"
+            android:textSize="18sp"
+            android:paddingTop="8dp" />
+        <Spinner
+            android:id="@+id/spinnerBarangay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:padding="16dp"
+            android:background="@drawable/et_bg"/>
+
+        <!-- Province (uneditable) -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Other Details (e.g., Street, Lot, Building)"
+            android:textSize="18sp"/>
+        <EditText
+            android:id="@+id/etBusinessAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Other Details"
+            android:layout_marginBottom="15dp"
+            android:textSize="18sp"
+            android:padding="16dp"
+            android:background="@drawable/et_bg"/>
+
+        <!-- Services Offered -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select the services your business offers"
+            android:textSize="18sp"
+            android:paddingTop="8dp" />
+
+        <CheckBox
+            android:id="@+id/cbHouseCleaning"
+            android:text="House Cleaning"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:textSize="18sp"/>
+        <CheckBox android:id="@+id/cbLaundry" android:text="Laundry"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:textSize="18sp"/>
+        <CheckBox android:id="@+id/cbPlumbing" android:text="Plumbing"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:textSize="18sp"/>
+        <CheckBox android:id="@+id/cbGardening" android:text="Gardening"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:textSize="18sp"/>
+
+        <!-- Business permit upload section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Upload a Copy of Your Business Permit"
+            android:textSize="18sp"
+            android:paddingTop="8dp" />
+
+        <!-- Placeholder for business permit -->
+        <ImageView
+            android:id="@+id/imgPermitPlaceholder"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/ic_placeholder"
+            android:contentDescription="Business Permit Placeholder"
+            android:scaleType="centerInside" />
+
+        <Button
+            android:id="@+id/btnUploadPermit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Upload Permit"
+            android:textSize="18sp"
+            android:padding="16dp"/>
+
+        <!-- Submit button -->
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Submit for Approval"
+            android:layout_marginTop="16dp"
+            android:textSize="18sp"
+            android:padding="16dp"/>
+    </LinearLayout>
+</ScrollView>
