@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_margin="16dp"
+    android:background="@drawable/et_bg"
+    tools:context=".CustDialogServiceDetailsActivity">
+
+    <!-- Service Image -->
+    <ImageView
+        android:id="@+id/service_image"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="fitCenter" />
+
+    <!-- Business Name -->
+    <TextView
+        android:id="@+id/business_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Business Name" />
+
+    <!-- Location -->
+    <TextView
+        android:id="@+id/location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Location" />
+
+    <!-- Service Type -->
+    <TextView
+        android:id="@+id/service_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Service Type" />
+
+    <!-- Service Description -->
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Description" />
+
+    <!-- Price -->
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Price"
+        android:textColor="@android:color/holo_green_dark" />
+
+</LinearLayout>

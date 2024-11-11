@@ -5,51 +5,61 @@
     android:layout_height="match_parent"
     android:padding="16dp">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical"
-        android:padding="16dp"
+    <EditText
+        android:id="@+id/editTextServiceName"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:hint="Service Name"
+        android:inputType="text"
+        android:textSize="18sp"
+        android:padding="16dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/et_bg"/>
 
-        <EditText
-            android:id="@+id/editTextServiceName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Service Name"
-            android:inputType="text"
-            android:textSize="18sp"
-            android:padding="16dp"
-            android:layout_marginBottom="15dp"
-            android:background="@drawable/et_bg"/>
+    <EditText
+        android:id="@+id/editTextServiceDescription"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:hint="Service Description"
+        android:inputType="textMultiLine"
+        android:textSize="18sp"
+        android:padding="16dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/et_bg"/>
 
-        <EditText
-            android:id="@+id/editTextServiceDescription"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:hint="Service Description"
-            android:inputType="textMultiLine"
-            android:textSize="18sp"
-            android:padding="16dp"
-            android:layout_marginBottom="15dp"
-            android:background="@drawable/et_bg"/>
+    <EditText
+        android:id="@+id/editTextServicePrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Price"
+        android:inputType="numberDecimal"
+        android:textSize="18sp"
+        android:padding="16dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/et_bg"/>
 
-        <EditText
-            android:id="@+id/editTextServicePrice"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Price"
-            android:inputType="numberDecimal"
-            android:textSize="18sp"
-            android:padding="16dp"
-            android:layout_marginBottom="15dp"
-            android:background="@drawable/et_bg"/>
+    <!-- Image Placeholder -->
+    <ImageView
+        android:id="@+id/imageViewServiceImage"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginBottom="15dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_placeholder" />
 
-        <Button
-            android:id="@+id/btnSaveService"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Save Service"/>
-    </LinearLayout>
+    <!-- Button to Select Image -->
+    <Button
+        android:id="@+id/btnSelectImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Upload Image"
+        android:layout_marginBottom="15dp"/>
 
+    <!-- Save Button -->
+    <Button
+        android:id="@+id/btnSaveService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save Service"/>
 
 </LinearLayout>

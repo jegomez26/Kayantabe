@@ -66,7 +66,7 @@ public class DashboardFragment extends Fragment {
 
 
         // Fetch Customers Count
-        db.collection("users").whereEqualTo("role", "customer")
+        db.collection("users").whereEqualTo("role", "Customer")
                 .get()
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {

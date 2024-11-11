@@ -6,14 +6,25 @@
     android:layout_marginBottom="15dp"
     android:background="@drawable/et_bg">
 
+    <!-- Service Image -->
+    <ImageView
+        android:id="@+id/serviceImage"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginBottom="10dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_placeholder" />
+
+    <!-- Service Name -->
     <TextView
         android:id="@+id/serviceName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Service Name"
         android:textSize="18sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
+    <!-- Service Description -->
     <TextView
         android:id="@+id/serviceDescription"
         android:layout_width="match_parent"
@@ -21,11 +32,12 @@
         android:text="Description"
         android:textSize="14sp" />
 
+    <!-- Service Price -->
     <TextView
         android:id="@+id/serviceAmount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Description"
+        android:text="Price"
         android:textSize="16sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 </LinearLayout>

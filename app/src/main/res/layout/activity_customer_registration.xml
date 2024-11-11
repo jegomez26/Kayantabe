@@ -8,24 +8,49 @@
     android:orientation="vertical"
     android:padding="16dp"
     android:background="@color/light_purple"
-    tools:context=".LoginActivity">
+    tools:context=".CustomerRegistrationActivity">
 
+    <!-- Title for the activity -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome!"
+        android:text="Customer Registration"
         android:textSize="32sp"
-        android:layout_gravity="center_horizontal"
-        android:paddingBottom="16dp" />
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:paddingBottom="16dp"/>
 
+    <!-- Labels and fields -->
+
+    <!-- Full Name -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Full Name"
+        android:textSize="18sp"
+        android:paddingTop="8dp" />
+
+    <EditText
+        android:id="@+id/edtName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="e.g., Juan Dela Cruz"
+        android:inputType="textPersonName"
+        android:textSize="18sp"
+        android:padding="16dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/et_bg"/>
+
+    <!-- Email Address -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Email Address"
         android:textSize="18sp"
         android:paddingTop="8dp" />
+
     <EditText
-        android:id="@+id/etEmail"
+        android:id="@+id/edtEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="e.g., example@email.com"
@@ -35,15 +60,16 @@
         android:layout_marginBottom="15dp"
         android:background="@drawable/et_bg"/>
 
-
+    <!-- Password -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Password"
+        android:text="Create a Password"
         android:textSize="18sp"
         android:paddingTop="8dp" />
+
     <EditText
-        android:id="@+id/etPassword"
+        android:id="@+id/edtPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Password"
@@ -53,31 +79,22 @@
         android:layout_marginBottom="15dp"
         android:background="@drawable/et_bg"/>
 
+    <!-- Email Verification Button -->
     <Button
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Login"
-        android:layout_marginTop="16dp"
+        android:text="Create Account"
         android:textSize="18sp"
-        android:padding="16dp"/>
+        android:padding="16dp"
+        android:layout_marginBottom="15dp"/>
 
-    <Button
-        android:id="@+id/btnRegisterLink"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Create an account now"
-        android:layout_marginTop="10dp"
-        android:textSize="18sp"
-        android:padding="16dp"/>
-
+    <!-- ProgressBar (Initially hidden) -->
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
         android:layout_gravity="center"
-        android:layout_marginTop="16dp"
-        />
-
+        android:layout_marginTop="16dp"/>
 </LinearLayout>

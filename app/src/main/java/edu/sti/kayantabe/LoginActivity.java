@@ -18,6 +18,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -52,7 +53,7 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(v -> loginUser());
 
         btnRegisterLink.setOnClickListener(v -> {
-            Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+            Intent intent = new Intent(LoginActivity.this, RegistrationOptionsActivity.class);
             startActivity(intent);
         });
     }
@@ -103,9 +104,10 @@ public class LoginActivity extends AppCompatActivity {
 
     private void redirectToRoleActivity(String role, DocumentSnapshot document) {
         Intent intent;
+        FirebaseUser user = mAuth.getCurrentUser();
+
         switch (role) {
             case "Admin":
-//                Toast.makeText(this, "Admin Login", Toast.LENGTH_SHORT).show();
                 intent = new Intent(LoginActivity.this, AdminDashboardActivity.class);
                 startActivity(intent);
                 break;
@@ -116,19 +118,33 @@ public class LoginActivity extends AppCompatActivity {
                     // Redirect to ServiceProviderDashboardActivity if business details are complete
                     Toast.makeText(this, "We're still waiting for the approval of admin.", Toast.LENGTH_SHORT).show();
                     return;
-                }
-                else if (isApproved != null && isApproved){
+                } else if (isApproved != null && isApproved) {
                     intent = new Intent(LoginActivity.this, ServiceProviderDashboardActivity.class);
                     startActivity(intent);
-                }else {
+                } else {
                     // Redirect to BusinessDetailsActivity if business details are incomplete
                     intent = new Intent(LoginActivity.this, BusinessDetailsActivity.class);
                     startActivity(intent);
                 }
                 break;
-//            case "Customer":
-//                intent = new Intent(LoginActivity.this, CustomerDashboardActivity.class);
-//                break;
+            case "Customer":
+                FirebaseUser currentUser = mAuth.getCurrentUser();
+                if (currentUser != null && currentUser.isEmailVerified()) {
+                    // Check if customer details are complete
+                    Boolean isCustomerDetailsComplete = document.getBoolean("isCustomerDetailsComplete");
+                    if (isCustomerDetailsComplete != null && isCustomerDetailsComplete) {
+                        // If customer details are complete, go to CustomerDashboardActivity
+                        intent = new Intent(LoginActivity.this, CustomerDashboardActivity.class);
+                    } else {
+                        // If customer details are not complete, go to CustomerDetailsActivity
+                        intent = new Intent(LoginActivity.this, CustomerDetailsActivity.class);
+                    }
+                    startActivity(intent);
+                } else {
+                    // If customer email is not verified, show a toast
+                    Toast.makeText(this, "Please verify your email to continue.", Toast.LENGTH_SHORT).show();
+                }
+                break;
             default:
                 Toast.makeText(this, "Unknown role.", Toast.LENGTH_SHORT).show();
                 return;

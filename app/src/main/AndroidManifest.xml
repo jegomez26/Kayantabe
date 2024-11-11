@@ -15,6 +15,23 @@
         android:theme="@style/Theme.Kayantabe"
         tools:targetApi="31">
         <activity
+            android:name=".CustDialogServiceDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CustomerDashboardActivity"
+            android:exported="false"
+            android:label="@string/title_activity_customer_dashboard"
+            android:theme="@style/Theme.Kayantabe.NoActionBar" />
+        <activity
+            android:name=".CustomerDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CustomerRegistrationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegistrationOptionsActivity"
+            android:exported="false" />
+        <activity
             android:name=".ServiceProviderDashboardActivity"
             android:exported="false"
             android:label="@string/title_activity_service_provider_dashboard"

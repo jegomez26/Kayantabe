@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation3"
+    app:startDestination="@+id/nav_cust_dashboard">
+
+    <fragment
+        android:id="@+id/nav_cust_dashboard"
+        android:name="edu.sti.kayantabe.ui.customer_dashboard.DashboardFragment"
+        android:label="Dashboard"
+        tools:layout="@layout/fragment_cust_dashboard" />
+
+    <fragment
+        android:id="@+id/nav_cust_bookings"
+        android:name="edu.sti.kayantabe.ui.customer_bookings.BookingsFragment"
+        android:label="Bookings"
+        tools:layout="@layout/fragment_cust_bookings" />
+
+    <fragment
+        android:id="@+id/nav_cust_history"
+        android:name="edu.sti.kayantabe.ui.customer_history.HistoryFragment"
+        android:label="History"
+        tools:layout="@layout/fragment_cust_history" />
+</navigation>

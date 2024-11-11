@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/light_purple">
+
+    <!-- Title -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Customer Details"
+        android:textSize="32sp"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:paddingBottom="16dp" />
+
+    <!-- Province (uneditable) -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Province"
+        android:textSize="18sp"
+        android:paddingTop="8dp" />
+
+    <EditText
+        android:id="@+id/edtProvince"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pampanga"
+        android:textSize="18sp"
+        android:padding="16dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/et_bg"
+        android:focusable="false"
+        android:clickable="false" />
+
+    <!-- City (uneditable) -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="City"
+        android:textSize="18sp"
+        android:paddingTop="8dp" />
+
+    <EditText
+        android:id="@+id/edtCity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Angeles City"
+        android:textSize="18sp"
+        android:padding="16dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/et_bg"
+        android:focusable="false"
+        android:clickable="false" />
+
+    <!-- Barangay (spinner) -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Barangay"
+        android:textSize="18sp"
+        android:paddingTop="8dp" />
+
+    <Spinner
+        android:id="@+id/spinnerBarangay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:padding="16dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/et_bg" />
+
+    <!-- Other Address Details -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Other Address Details"
+        android:textSize="18sp"
+        android:paddingTop="8dp" />
+
+    <EditText
+        android:id="@+id/edtOtherAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="e.g., Block 2, Lot 3"
+        android:textSize="18sp"
+        android:padding="16dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/et_bg" />
+
+    <!-- Contact Number -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contact Number"
+        android:textSize="18sp"
+        android:paddingTop="8dp" />
+
+    <EditText
+        android:id="@+id/edtContactNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="e.g., 09123456789"
+        android:inputType="phone"
+        android:textSize="18sp"
+        android:padding="16dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/et_bg" />
+
+    <!-- Submit Button -->
+    <Button
+        android:id="@+id/btnSaveDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save Details"
+        android:textSize="18sp"
+        android:padding="16dp"
+        android:layout_marginTop="15dp" />
+</LinearLayout>
