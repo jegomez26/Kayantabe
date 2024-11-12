@@ -170,4 +170,3 @@ public class EditServiceDialogFragment extends DialogFragment {
                 .addOnFailureListener(e -> Toast.makeText(getContext(), "Failed to update service", Toast.LENGTH_SHORT).show());
     }
 }
-

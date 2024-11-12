@@ -9,15 +9,27 @@ public class BusinessDetails {
     private String businessAddress;
     private List<String> services;
     private String businessPermitUrl;
+    private String logoUrl;
 
     // Constructor
-    public BusinessDetails(String businessName, String barangay, String businessAddress, List<String> services, String businessPermitUrl) {
+    public BusinessDetails(String businessName, String barangay, String businessAddress, List<String> services, String businessPermitUrl, String logoUrl) {
         this.businessName = businessName;
         this.barangay = barangay;
         this.businessAddress = businessAddress;
         this.services = services;
         this.businessPermitUrl = businessPermitUrl;
+        this.logoUrl = logoUrl;
     }
+
+
+    public String getLogoUrl() {
+        return logoUrl;
+    }
+
+    public void setLogoUrl(String logoUrl) {
+        this.logoUrl = logoUrl;
+    }
+
 
     // Getter and Setter methods
     public String getBusinessName() {

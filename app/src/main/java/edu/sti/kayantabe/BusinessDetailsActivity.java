@@ -36,18 +36,18 @@ public class BusinessDetailsActivity extends AppCompatActivity {
     private EditText etBusinessName, etProvince, etCity, etBusinessAddress;
     private Spinner spinnerBarangay;
     private CheckBox cbHouseCleaning, cbLaundry, cbPlumbing, cbGardening;
-    private Button btnSubmit, btnUploadPermit;
-    private ImageView imgPermitPlaceholder;
+    private Button btnSubmit, btnUploadPermit, btnUploadLogo;
+    private ImageView imgPermitPlaceholder, imgLogoPlaceholder;
 
     private static final int PICK_IMAGE_REQUEST = 1;
-    private Uri businessPermitUri;
+    private Uri businessPermitUri, businessLogoUri;
 
     // Firebase references
     private FirebaseStorage storage;
     private StorageReference storageReference;
     private FirebaseFirestore db;
     private String userId;
-    private String permitBase64;
+    private String permitBase64, logoBase64;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,7 +72,9 @@ public class BusinessDetailsActivity extends AppCompatActivity {
         cbGardening = findViewById(R.id.cbGardening);
         btnSubmit = findViewById(R.id.btnSubmit);
         btnUploadPermit = findViewById(R.id.btnUploadPermit);
+        btnUploadLogo = findViewById(R.id.btnUploadLogo);
         imgPermitPlaceholder = findViewById(R.id.imgPermitPlaceholder);
+        imgLogoPlaceholder = findViewById(R.id.imgLogoPlaceholder);
 
         // Firebase initialization
         storage = FirebaseStorage.getInstance();
@@ -124,13 +126,15 @@ public class BusinessDetailsActivity extends AppCompatActivity {
         barangayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerBarangay.setAdapter(barangayAdapter);
 
-        // Setup the button for uploading the business permit image
+        // Setup the buttons for uploading the business permit and logo images
         btnUploadPermit.setOnClickListener(v -> uploadPermit());
+        btnUploadLogo.setOnClickListener(v -> uploadLogo());
 
         // Handle submit button click
         btnSubmit.setOnClickListener(v -> handleSubmit());
     }
 
+    // Function to upload business permit
     private void uploadPermit() {
         Intent intent = new Intent();
         intent.setType("image/*"); // Allow images only
@@ -138,26 +142,52 @@ public class BusinessDetailsActivity extends AppCompatActivity {
         startActivityForResult(Intent.createChooser(intent, "Select Business Permit Image"), PICK_IMAGE_REQUEST);
     }
 
+    // Function to upload logo image
+    private void uploadLogo() {
+        Intent intent = new Intent();
+        intent.setType("image/*"); // Allow images only
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "Select Logo Image"), PICK_IMAGE_REQUEST);
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
-            businessPermitUri = data.getData();
-            imgPermitPlaceholder.setImageURI(businessPermitUri); // Display the selected image
+            Uri selectedUri = data.getData();
 
-            // Convert image to Base64
-            try {
-                InputStream inputStream = getContentResolver().openInputStream(businessPermitUri);
-                Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
-                permitBase64 = encodeToBase64(bitmap);
-            } catch (Exception e) {
-                e.printStackTrace();
-                Toast.makeText(this, "Failed to encode image", Toast.LENGTH_SHORT).show();
+            if (requestCode == PICK_IMAGE_REQUEST) {
+                // Determine whether it's the business permit or logo
+                if (businessPermitUri == null) {
+                    businessPermitUri = selectedUri;
+                    imgPermitPlaceholder.setImageURI(businessPermitUri); // Display the selected business permit image
+                    convertImageToBase64(businessPermitUri, true);
+                } else {
+                    businessLogoUri = selectedUri;
+                    imgLogoPlaceholder.setImageURI(businessLogoUri); // Display the selected logo image
+                    convertImageToBase64(businessLogoUri, false);
+                }
             }
         }
     }
 
+    private void convertImageToBase64(Uri imageUri, boolean isPermit) {
+        try {
+            InputStream inputStream = getContentResolver().openInputStream(imageUri);
+            Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
 
+            if (isPermit) {
+                permitBase64 = encodeToBase64(bitmap); // Encode business permit image to Base64
+            } else {
+                logoBase64 = encodeToBase64(bitmap); // Encode logo image to Base64
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(this, "Failed to encode image", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    // Handle submit button click
     private void handleSubmit() {
         String businessName = etBusinessName.getText().toString().trim();
         String businessAddress = etBusinessAddress.getText().toString().trim();
@@ -170,13 +200,13 @@ public class BusinessDetailsActivity extends AppCompatActivity {
         if (cbPlumbing.isChecked()) services.add("Plumbing");
         if (cbGardening.isChecked()) services.add("Gardening");
 
-        if (businessName.isEmpty() || businessAddress.isEmpty() || services.isEmpty() || permitBase64 == null) {
+        if (businessName.isEmpty() || businessAddress.isEmpty() || services.isEmpty() || permitBase64 == null || logoBase64 == null) {
             Toast.makeText(this, "Please fill all fields correctly", Toast.LENGTH_SHORT).show();
             return;
         }
 
         // Submit business details to Firestore
-        BusinessDetails businessDetails = new BusinessDetails(businessName, selectedBarangay, businessAddress, services, permitBase64);
+        BusinessDetails businessDetails = new BusinessDetails(businessName, selectedBarangay, businessAddress, services, permitBase64, logoBase64);
         db.collection("service_providers").document(userId)
                 .set(businessDetails)
                 .addOnSuccessListener(aVoid -> {
@@ -188,17 +218,12 @@ public class BusinessDetailsActivity extends AppCompatActivity {
                                 Intent intent = new Intent(BusinessDetailsActivity.this, LoginActivity.class);
                                 startActivity(intent);
                                 finish();
-                            })
-                            .addOnFailureListener(e -> {
-                                Toast.makeText(this, "Failed to update user status: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                             });
                 })
-                .addOnFailureListener(e -> {
-                    Toast.makeText(this, "Failed to submit details: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                });
+                .addOnFailureListener(e -> Toast.makeText(this, "Error submitting business details", Toast.LENGTH_SHORT).show());
     }
 
-    // Helper method to convert Bitmap to Base64
+    // Helper method to convert image to Base64
     private String encodeToBase64(Bitmap image) {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         image.compress(Bitmap.CompressFormat.JPEG, 100, baos);

@@ -1,11 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".BusinessDetailsActivity">
+    android:layout_height="wrap_content"
+    android:padding="16dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,26 +28,31 @@
             android:textSize="18sp"
             android:paddingTop="8dp" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
         <!-- Placeholder for Business Logo -->
         <ImageView
             android:id="@+id/imgLogoPlaceholder"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:src="@drawable/ic_image"
             android:contentDescription="Business Logo Placeholder"
-            android:layout_gravity="center"
             android:scaleType="centerCrop"
             android:layout_marginBottom="16dp"
+            android:layout_marginEnd="30dp"
             android:background="@drawable/rounded_border"/>
 
         <Button
             android:id="@+id/btnUploadLogo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:text="Upload Logo"
             android:textSize="18sp"
-            android:padding="16dp"/>
-
+            android:padding="10dp"/>
+        </LinearLayout>
         <!-- Business Name -->
         <TextView
             android:layout_width="wrap_content"
@@ -142,64 +144,12 @@
             android:padding="16dp"
             android:background="@drawable/et_bg"/>
 
-        <!-- Services Offered -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Select the services your business offers"
-            android:textSize="18sp"
-            android:paddingTop="8dp" />
-
-        <CheckBox
-            android:id="@+id/cbHouseCleaning"
-            android:text="House Cleaning"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:textSize="18sp"/>
-        <CheckBox android:id="@+id/cbLaundry" android:text="Laundry"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:textSize="18sp"/>
-        <CheckBox android:id="@+id/cbPlumbing" android:text="Plumbing"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:textSize="18sp"/>
-        <CheckBox android:id="@+id/cbGardening" android:text="Gardening"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:textSize="18sp"/>
-
-        <!-- Business permit upload section -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Upload a Copy of Your Business Permit"
-            android:textSize="18sp"
-            android:paddingTop="8dp" />
-
-        <!-- Placeholder for business permit -->
-        <ImageView
-            android:id="@+id/imgPermitPlaceholder"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:src="@drawable/ic_placeholder"
-            android:contentDescription="Business Permit Placeholder"
-            android:scaleType="fitCenter" />
-
-        <Button
-            android:id="@+id/btnUploadPermit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Upload Permit"
-            android:textSize="18sp"
-            android:padding="16dp"/>
-
         <!-- Submit button -->
         <Button
             android:id="@+id/btnSubmit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Submit for Approval"
+            android:text="Update Business Profile"
             android:layout_marginTop="16dp"
             android:textSize="18sp"
             android:padding="16dp"/>
