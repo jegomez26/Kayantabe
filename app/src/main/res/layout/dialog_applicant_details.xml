@@ -11,8 +11,7 @@
         android:layout_height="wrap_content"
         android:text="Business: "
         android:textSize="18sp"
-        android:textColor="#000000"
-        android:fontFamily="sans-serif-medium"/>
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/dialogRepresentativeName"
@@ -43,7 +42,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="View Business Permit"
-        android:layout_marginTop="10dp"/>
+        android:padding="16dp"
+        android:textSize="16sp"
+        android:layout_marginTop="20dp"/>
 
     <Button
         android:id="@+id/btnApprove"
@@ -51,13 +52,17 @@
         android:layout_height="wrap_content"
         android:text="Approve"
         android:backgroundTint="#4CAF50"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        android:padding="16dp"
+        android:textSize="16sp"/>
 
     <Button
         android:id="@+id/btnReject"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Reject"
-        android:backgroundTint="#F44336"
-        android:layout_marginTop="10dp"/>
+        android:backgroundTint="@color/kayantabe_secondary_variant"
+        android:layout_marginTop="10dp"
+        android:padding="16dp"
+        android:textSize="16sp"/>
 </LinearLayout>

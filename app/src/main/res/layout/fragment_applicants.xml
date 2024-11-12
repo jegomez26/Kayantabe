@@ -4,8 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
     tools:context=".ui.admin_applicants.ApplicantsFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
 
     <!-- Title -->
     <TextView
@@ -14,8 +19,7 @@
         android:layout_height="wrap_content"
         android:text="Service Provider Applications"
         android:textSize="24sp"
-        android:fontFamily="sans-serif-medium"
-        android:layout_margin="16dp"
+        android:layout_marginBottom="15dp"
         android:textColor="#000000"/>
 
     <!-- RecyclerView for the list of applicants -->
@@ -24,5 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/applicantsTitle"
-        android:padding="16dp"/>
+        android:scrollbars="vertical"/>
+
+    </LinearLayout>
 </RelativeLayout>

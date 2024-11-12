@@ -6,24 +6,29 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:layout_margin="16dp"
-    android:background="@drawable/et_bg"
     tools:context=".CustDialogServiceDetailsActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_margin="16dp"
+        android:background="@drawable/et_bg">
     <!-- Service Image -->
     <ImageView
         android:id="@+id/service_image"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:scaleType="fitCenter" />
+        android:scaleType="centerCrop" />
 
     <!-- Business Name -->
     <TextView
         android:id="@+id/business_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Business Name" />
+        android:text="Business Name"
+        android:textStyle="bold"/>
 
     <!-- Location -->
     <TextView
@@ -37,7 +42,9 @@
         android:id="@+id/service_type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Service Type" />
+        android:text="Service Type"
+        android:textSize="18sp"
+        android:textStyle="bold"/>
 
     <!-- Service Description -->
     <TextView
@@ -52,6 +59,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Price"
-        android:textColor="@android:color/holo_green_dark" />
+        android:textColor="#03D14A"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
+    </LinearLayout>
 
 </LinearLayout>

@@ -1,5 +1,6 @@
 package edu.sti.kayantabe.ui.sp_services;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,13 +15,13 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
-
-import java.util.ArrayList;
 import edu.sti.kayantabe.R;
 import edu.sti.kayantabe.Service;
 import edu.sti.kayantabe.databinding.FragmentServicesBinding;
 
-public class ServicesFragment extends Fragment {
+import java.util.ArrayList;
+
+public class ServicesFragment extends Fragment implements ServicesAdapter.OnServiceActionListener {
 
     private FragmentServicesBinding binding;
     private RecyclerView recyclerView;
@@ -40,7 +41,7 @@ public class ServicesFragment extends Fragment {
 
         // Initialize services list and adapter
         servicesList = new ArrayList<>();
-        servicesAdapter = new ServicesAdapter(servicesList);
+        servicesAdapter = new ServicesAdapter(servicesList, this);
         recyclerView.setAdapter(servicesAdapter);
 
         // Fetch services data from Firestore
@@ -49,9 +50,8 @@ public class ServicesFragment extends Fragment {
         // Set up the FAB to add new service
         FloatingActionButton fabAddService = view.findViewById(R.id.fabAddService);
         fabAddService.setOnClickListener(v -> {
-            // Show dialog to add a new service
             AddServiceDialogFragment newServiceDialog = new AddServiceDialogFragment();
-            newServiceDialog.setOnServiceAddedListener(this::fetchServices);  // To refresh the service list after adding a new one
+            newServiceDialog.setOnServiceAddedListener(this::fetchServices);
             newServiceDialog.show(getChildFragmentManager(), "AddServiceDialog");
         });
 
@@ -63,20 +63,51 @@ public class ServicesFragment extends Fragment {
         if (user != null) {
             String userId = user.getUid();
 
-            // Fetch services for the current user only
             db.collection("services")
-                    .whereEqualTo("userId", userId)  // Filter by userId
+                    .whereEqualTo("userId", userId)
                     .get()
                     .addOnSuccessListener(queryDocumentSnapshots -> {
-                        servicesList.clear();  // Clear existing services
+                        servicesList.clear();
                         for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
                             Service service = document.toObject(Service.class);
+                            service.setId(document.getId());
                             servicesList.add(service);
                         }
-                        servicesAdapter.notifyDataSetChanged();  // Update the RecyclerView
+                        servicesAdapter.notifyDataSetChanged();
                     })
                     .addOnFailureListener(e -> Toast.makeText(getActivity(), "Failed to load services", Toast.LENGTH_SHORT).show());
         }
     }
 
+    private void confirmDeleteService(Service service) {
+        new AlertDialog.Builder(getContext())
+                .setTitle("Delete Service")
+                .setMessage("Are you sure you want to delete this service?")
+                .setPositiveButton("Yes", (dialog, which) -> {
+                    db.collection("services").document(service.getId()).delete()
+                            .addOnSuccessListener(aVoid -> {
+                                fetchServices();
+                                Toast.makeText(getContext(), "Service deleted successfully", Toast.LENGTH_SHORT).show();
+                            })
+                            .addOnFailureListener(e -> Toast.makeText(getContext(), "Failed to delete service", Toast.LENGTH_SHORT).show());
+                })
+                .setNegativeButton("No", null)
+                .show();
+    }
+
+    private void showEditServiceDialog(Service service) {
+        EditServiceDialogFragment editDialog = EditServiceDialogFragment.newInstance(service);
+        editDialog.setOnServiceUpdatedListener(this::fetchServices);
+        editDialog.show(getChildFragmentManager(), "EditServiceDialog");
+    }
+
+    @Override
+    public void onEdit(Service service) {
+        showEditServiceDialog(service);
+    }
+
+    @Override
+    public void onDelete(Service service) {
+        confirmDeleteService(service);
+    }
 }

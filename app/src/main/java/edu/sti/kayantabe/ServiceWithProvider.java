@@ -3,7 +3,7 @@ package edu.sti.kayantabe;
 public class ServiceWithProvider {
     private String businessName;
     private String businessAddress;
-    private String businessBarangay;
+    private String barangay;
     private String serviceName;
     private String description;
     private double price;
@@ -14,7 +14,7 @@ public class ServiceWithProvider {
                                String serviceName, String description, double price, String imageUrl) {
         this.businessName = businessName;
         this.businessAddress = businessAddress;
-        this.businessBarangay = businessBarangay;
+        this.barangay = businessBarangay;
         this.serviceName = serviceName;
         this.description = description;
         this.price = price;
@@ -39,11 +39,11 @@ public class ServiceWithProvider {
     }
 
     public String getBusinessBarangay() {
-        return businessBarangay;
+        return barangay;
     }
 
     public void setBusinessBarangay(String businessBarangay) {
-        this.businessBarangay = businessBarangay;
+        this.barangay = businessBarangay;
     }
 
     public String getServiceName() {

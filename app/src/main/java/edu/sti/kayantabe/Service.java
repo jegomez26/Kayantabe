@@ -1,12 +1,15 @@
 package edu.sti.kayantabe;
 
-public class Service {
+import java.io.Serializable;
+
+public class Service implements Serializable {
 
     private String name;
     private String description;
     private double price;
     private String userId;
     private String imageUrl;  // URL for the image associated with the service
+    private String id;
 
     public Service() {
         // Default constructor required for Firestore serialization
@@ -60,5 +63,13 @@ public class Service {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

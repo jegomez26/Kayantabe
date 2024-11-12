@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_marginBottom="10dp"
-        android:scaleType="fitCenter"
+        android:scaleType="centerCrop"
         android:src="@drawable/ic_placeholder" />
 
     <!-- Service Name -->
@@ -40,4 +40,32 @@
         android:text="Price"
         android:textSize="16sp"
         android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_editService"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Edit Service"
+            android:textSize="16sp"
+            android:padding="16dp"
+            android:layout_marginEnd="5dp"/>
+
+        <Button
+            android:id="@+id/btn_deleteService"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Delete Service"
+            android:textSize="16sp"
+            android:padding="16dp"
+            android:backgroundTint="@color/kayantabe_secondary_variant"
+            android:layout_marginStart="5dp"/>
+
+    </LinearLayout>
 </LinearLayout>

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".ui.sp_services.EditServiceDialogFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -48,7 +49,7 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_marginBottom="15dp"
-        android:scaleType="fitCenter"
+        android:scaleType="centerCrop"
         android:src="@drawable/ic_placeholder" />
 
     <!-- Button to Select Image -->
@@ -56,7 +57,7 @@
         android:id="@+id/btnSelectImage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Upload Image"
+        android:text="Change Image"
         android:padding="16dp"
         android:textSize="18sp"
         android:layout_marginBottom="15dp"/>

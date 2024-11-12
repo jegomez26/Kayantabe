@@ -80,7 +80,7 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
     private void showServiceDialog(ServiceWithProvider service) {
         // Create and show a dialog displaying the full service details
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle(service.getServiceName());
+        builder.setTitle("Service Details");
 
         View dialogView = LayoutInflater.from(context).inflate(R.layout.activity_cust_dialog_service_details, null);
         ImageView serviceImage = dialogView.findViewById(R.id.service_image);
@@ -99,7 +99,7 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
         location.setText(service.getBusinessAddress() + ", " + service.getBusinessBarangay());
         serviceType.setText(service.getServiceName());
         description.setText(service.getDescription());
-        price.setText(String.format("$%.2f", service.getPrice()));
+        price.setText(String.format("PHP %.2f", service.getPrice()));
 
         // Add booking button
         builder.setView(dialogView)

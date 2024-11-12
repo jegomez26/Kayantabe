@@ -6,9 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
     tools:context=".EmailVerificationActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
     <!-- Title for the activity -->
     <TextView
         android:layout_width="wrap_content"
@@ -24,7 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="We’ve sent a verification link to your email. Please check your inbox and click on the link to verify your account."
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:paddingBottom="24dp" />
 
     <!-- Check verification button -->
@@ -35,5 +39,5 @@
         android:text="I Verified My Email"
         android:textSize="18sp"
         android:padding="16dp"/>
-
+    </LinearLayout>
 </LinearLayout>

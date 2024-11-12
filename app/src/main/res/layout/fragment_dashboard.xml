@@ -13,8 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Admin Dashboard"
-        android:textSize="24sp"
-        android:fontFamily="sans-serif-medium"
+        android:textSize="32sp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:paddingBottom="20dp"
@@ -42,9 +41,8 @@
                 android:id="@+id/applicantsLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Applicants"
+                android:text="Number of Applicants"
                 android:textSize="18sp"
-                android:fontFamily="sans-serif-medium"
                 android:textColor="#555555"/>
 
             <TextView
@@ -52,8 +50,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0"
-                android:textSize="28sp"
-                android:fontFamily="sans-serif"
+                android:textSize="32sp"
+                android:textStyle="bold"
                 android:textColor="#000000"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
@@ -79,9 +77,8 @@
                 android:id="@+id/serviceProvidersLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Service Providers"
+                android:text="Number of Service Providers"
                 android:textSize="18sp"
-                android:fontFamily="sans-serif-medium"
                 android:textColor="#555555"/>
 
             <TextView
@@ -89,8 +86,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0"
-                android:textSize="28sp"
-                android:fontFamily="sans-serif"
+                android:textSize="32sp"
+                android:textStyle="bold"
                 android:textColor="#000000"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
@@ -116,9 +113,8 @@
                 android:id="@+id/customersLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Customers"
+                android:text="Number of Customers"
                 android:textSize="18sp"
-                android:fontFamily="sans-serif-medium"
                 android:textColor="#555555"/>
 
             <TextView
@@ -126,8 +122,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0"
-                android:textSize="28sp"
-                android:fontFamily="sans-serif"
+                android:textSize="32sp"
+                android:textStyle="bold"
                 android:textColor="#000000"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>

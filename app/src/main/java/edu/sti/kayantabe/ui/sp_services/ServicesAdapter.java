@@ -6,23 +6,28 @@ import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.ArrayList;
-
 import edu.sti.kayantabe.R;
 import edu.sti.kayantabe.Service;
 
 public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ServiceViewHolder> {
 
     private ArrayList<Service> servicesList;
+    private OnServiceActionListener actionListener;
 
-    public ServicesAdapter(ArrayList<Service> servicesList) {
+    public interface OnServiceActionListener {
+        void onEdit(Service service);
+        void onDelete(Service service);
+    }
+
+    public ServicesAdapter(ArrayList<Service> servicesList, OnServiceActionListener actionListener) {
         this.servicesList = servicesList;
+        this.actionListener = actionListener;
     }
 
     @NonNull
@@ -45,8 +50,12 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
             Bitmap decodedImage = decodeBase64ToBitmap(service.getImageUrl());
             holder.serviceImageView.setImageBitmap(decodedImage);
         } else {
-            holder.serviceImageView.setImageResource(R.drawable.ic_placeholder); // Set placeholder if imageBase64 is empty
+            holder.serviceImageView.setImageResource(R.drawable.ic_placeholder);
         }
+
+        // Set listeners for edit and delete buttons
+        holder.btnEditService.setOnClickListener(v -> actionListener.onEdit(service));
+        holder.btnDeleteService.setOnClickListener(v -> actionListener.onDelete(service));
     }
 
     @Override
@@ -59,13 +68,17 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
         TextView descriptionTextView;
         TextView amountTextView;
         ImageView serviceImageView;
+        Button btnEditService;
+        Button btnDeleteService;
 
         public ServiceViewHolder(View itemView) {
             super(itemView);
             nameTextView = itemView.findViewById(R.id.serviceName);
             descriptionTextView = itemView.findViewById(R.id.serviceDescription);
             amountTextView = itemView.findViewById(R.id.serviceAmount);
-            serviceImageView = itemView.findViewById(R.id.serviceImage); // ImageView for service image
+            serviceImageView = itemView.findViewById(R.id.serviceImage);
+            btnEditService = itemView.findViewById(R.id.btn_editService);
+            btnDeleteService = itemView.findViewById(R.id.btn_deleteService);
         }
     }
 
@@ -76,7 +89,7 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
             return BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
         } catch (Exception e) {
             e.printStackTrace();
-            return null; // Return null if decoding fails
+            return null;
         }
     }
 }

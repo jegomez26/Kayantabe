@@ -55,7 +55,7 @@ public class DashboardViewModel extends ViewModel {
                                     .addOnSuccessListener(providerDoc -> {
                                         String businessName = providerDoc.getString("businessName");
                                         String businessAddress = providerDoc.getString("businessAddress");
-                                        String businessBarangay = providerDoc.getString("businessBarangay");
+                                        String businessBarangay = providerDoc.getString("barangay");
 
                                         ServiceWithProvider serviceWithProvider = new ServiceWithProvider(
                                                 businessName, businessAddress, businessBarangay,

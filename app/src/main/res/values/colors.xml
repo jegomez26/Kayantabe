@@ -5,4 +5,13 @@
     <color name="light_purple">#FFE1FF</color>
     <color name="dark_purple">#433878</color>
     <color name="mid_purple">#7E60BF</color>
+
+    <color name="kayantabe_primary">#4E8098</color> <!-- Deep teal-blue for primary brand color -->
+    <color name="kayantabe_primary_variant">#3A6876</color> <!-- Darker variant of primary color -->
+    <color name="kayantabe_secondary">#F4A261</color> <!-- Warm, muted orange for secondary highlights -->
+    <color name="kayantabe_secondary_variant">#E76F51</color> <!-- Slightly deeper orange for emphasis -->
+    <color name="kayantabe_background">#FAFAFA</color> <!-- Very light gray background for a clean look -->
+    <color name="kayantabe_surface">#FFFFFF</color> <!-- White surface color -->
+    <color name="kayantabe_text_primary">#333333</color> <!-- Dark gray for primary text for readability -->
+    <color name="kayantabe_text_secondary">#666666</color> <!-- Lighter gray for secondary text -->
 </resources>
