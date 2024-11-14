@@ -1,8 +1,34 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+    <!-- Base application theme -->
     <style name="Base.Theme.Kayantabe" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <!-- Primary and Secondary colors for Light Theme -->
+        <item name="colorPrimary">@color/kayantabe_primary</item>
+        <item name="colorPrimaryVariant">@color/kayantabe_primary_variant</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/kayantabe_secondary</item>
+        <item name="colorSecondaryVariant">@color/kayantabe_secondary_variant</item>
+        <item name="colorOnSecondary">@color/white</item>
 
+        <!-- Background and Surface colors -->
+        <item name="android:colorBackground">@color/kayantabe_background</item>
+        <item name="colorOnBackground">@color/kayantabe_text_primary</item>
+        <item name="colorSurface">@color/kayantabe_surface</item>
+        <item name="colorOnSurface">@color/kayantabe_text_secondary</item>
+
+        <!-- Text appearance -->
+        <item name="android:fontFamily">@font/poppins</item>
     </style>
+
+    <!-- Default theme -->
+    <style name="Theme.Kayantabe" parent="Base.Theme.Kayantabe" />
+
+    <!-- No Action Bar theme -->
+    <style name="Theme.Kayantabe.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!-- AppBar and Popup Overlays -->
+    <style name="Theme.Kayantabe.AppBarOverlay" parent="ThemeOverlay.Material3.Dark.ActionBar" />
+    <style name="Theme.Kayantabe.PopupOverlay" parent="ThemeOverlay.Material3.Light" />
 </resources>

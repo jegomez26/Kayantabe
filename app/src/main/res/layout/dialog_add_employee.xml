@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <!-- Profile Picture Upload -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Employee Profile Picture"
+        android:textSize="16sp"
+        android:paddingBottom="8dp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/ivEmployeeProfilePicture"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:background="@drawable/rounded_border"
+        android:clipToOutline="true"
+        android:padding="4dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_image" /> <!-- Default profile image -->
+
+    <!-- Button to choose an image -->
+    <Button
+        android:id="@+id/btnChooseImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:text="Upload Image" />
+
+    <!-- Full Name Input Field -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="First Name"
+        android:textSize="16sp"
+        android:paddingTop="16dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/etEmployeeFirstName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter first name"
+        android:inputType="textPersonName"
+        android:padding="16dp"
+        android:background="@drawable/et_bg" /> <!-- Custom background if needed -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Last Name"
+        android:textSize="16sp"
+        android:paddingTop="16dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/etEmployeeLastName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter last name"
+        android:inputType="textPersonName"
+        android:padding="16dp"
+        android:background="@drawable/et_bg" />
+
+    <!-- Contact Number Input Field -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contact Number"
+        android:textSize="16sp"
+        android:paddingTop="16dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/etEmployeeContactNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter contact number"
+        android:inputType="phone"
+        android:padding="16dp"
+        android:background="@drawable/et_bg" />
+
+    <!-- Save and Cancel Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="24dp"
+        android:gravity="end">
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:padding="16dp"
+            android:text="Cancel"
+            android:backgroundTint="@color/kayantabe_text_secondary" />
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            android:padding="16dp"
+            android:backgroundTint="?attr/colorPrimary"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+
+</LinearLayout>
