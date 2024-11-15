@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -35,6 +36,8 @@ public class DashboardViewModel extends ViewModel {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         List<ServiceWithProvider> serviceWithProviderList = new ArrayList<>();
 
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+
         db.collection("services").get()
                 .addOnSuccessListener(serviceSnapshots -> {
                     int totalServices = serviceSnapshots.size();
@@ -44,6 +47,7 @@ public class DashboardViewModel extends ViewModel {
                     }
 
                     for (DocumentSnapshot serviceDoc : serviceSnapshots.getDocuments()) {
+                        String serviceID = serviceDoc.getId().toString();
                         String serviceName = serviceDoc.getString("name");
                         String description = serviceDoc.getString("description");
                         Double price = serviceDoc.getDouble("price");
@@ -58,8 +62,9 @@ public class DashboardViewModel extends ViewModel {
                                         String businessBarangay = providerDoc.getString("barangay");
 
                                         ServiceWithProvider serviceWithProvider = new ServiceWithProvider(
+                                                serviceID, serviceName, description,
                                                 businessName, businessAddress, businessBarangay,
-                                                serviceName, description, price != null ? price : 0.0, imageUrl
+                                                providerId, price != null ? price : 0.0, imageUrl
                                         );
 
                                         serviceWithProviderList.add(serviceWithProvider);

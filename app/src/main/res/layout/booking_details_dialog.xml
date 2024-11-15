@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <!-- Service Image -->
+        <ImageView
+            android:id="@+id/service_image"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:contentDescription="Service Image"
+            android:layout_marginBottom="10dp" />
+
+        <!-- Service Name -->
+        <TextView
+            android:id="@+id/service_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Deep Cleaning"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center"/>
+
+        <!-- Provider Name -->
+        <TextView
+            android:id="@+id/service_provider_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Je Cleaning Services"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Booking Date and Time -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Date and Time: "
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/booking_date_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <!-- Booking Status -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp"
+            android:gravity="end">
+
+            <TextView
+                android:id="@+id/booking_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#4CAF50"
+                android:text="Pending"
+                android:textAllCaps="true"
+                android:textStyle="italic|bold"
+                />
+        </LinearLayout>
+
+        <!-- Employee Details (If Applicable) -->
+        <TextView
+            android:id="@+id/employee_section_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Assigned Employees"
+            android:textSize="18sp"
+            android:visibility="gone"
+            android:layout_marginBottom="8dp"
+            android:textStyle="bold"
+            android:gravity="center" />
+
+        <LinearLayout
+            android:id="@+id/employee_details_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+            <!-- Employee details will be dynamically added here -->
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
