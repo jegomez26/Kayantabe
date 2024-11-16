@@ -119,7 +119,10 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
 
             holder.acceptBooking.setOnClickListener(v -> showEmployeeAssignmentDialog(booking));
             holder.declineBooking.setOnClickListener(v -> declineBooking(booking));
-        } else if ("accepted".equalsIgnoreCase(booking.getStatus())) {
+        } else if ("accepted".equalsIgnoreCase(booking.getStatus())
+                || "In Transit".equalsIgnoreCase(booking.getStatus())
+                || "Arrived".equalsIgnoreCase(booking.getStatus())
+                || "Completed".equalsIgnoreCase(booking.getStatus())) {
             holder.acceptBooking.setVisibility(View.GONE);
             holder.declineBooking.setVisibility(View.GONE);
             holder.viewAssignedEmployees.setVisibility(View.VISIBLE);

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group android:checkableBehavior="single">
+        <!-- Menu Item: Current Assigned Bookings -->
+        <item
+            android:id="@+id/nav_current_bookings"
+            android:icon="@drawable/ic_bookings"
+            android:title="Current Assigned Bookings" />
+
+        <!-- Menu Item: Past Assigned Bookings -->
+        <item
+            android:id="@+id/nav_past_bookings"
+            android:icon="@drawable/ic_history"
+            android:title="Past Assigned Bookings" />
+    </group>
+</menu>

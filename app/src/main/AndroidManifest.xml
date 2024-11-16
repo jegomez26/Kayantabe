@@ -21,6 +21,11 @@
         android:theme="@style/Theme.Kayantabe"
         tools:targetApi="31">
         <activity
+            android:name=".EmployeeDashboardActivity"
+            android:exported="false"
+            android:label="@string/title_activity_employee_dashboard"
+            android:theme="@style/Theme.Kayantabe.NoActionBar" />
+        <activity
             android:name=".CustDialogServiceDetailsActivity"
             android:exported="false" />
         <activity

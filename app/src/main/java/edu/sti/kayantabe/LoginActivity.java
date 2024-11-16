@@ -145,6 +145,10 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(this, "Please verify your email to continue.", Toast.LENGTH_SHORT).show();
                 }
                 break;
+            case "Employee":
+                intent = new Intent(LoginActivity.this, EmployeeDashboardActivity.class);
+                startActivity(intent);
+                break;
             default:
                 Toast.makeText(this, "Unknown role.", Toast.LENGTH_SHORT).show();
                 return;

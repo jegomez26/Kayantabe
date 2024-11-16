@@ -53,7 +53,28 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingV
         holder.price.setText(String.format("PHP %.2f", booking.getPrice()));
         holder.bookingDateTime.setText("Booking Date & Time: " + booking.getBookingDateTime());
 
-        holder.bookingStatus.setText("Status: " + booking.getStatus());
+        // Set custom status messages based on booking status
+        switch (booking.getStatus().toLowerCase(Locale.ROOT)) {
+            case "pending":
+                holder.bookingStatus.setText("Waiting for Service Provider Approval");
+                break;
+            case "in transit":
+                holder.bookingStatus.setText("Employees are on their way");
+                break;
+            case "arrived":
+                holder.bookingStatus.setText("Employees have arrived");
+                break;
+            case "completed":
+                holder.bookingStatus.setText("Service completed successfully");
+                break;
+            case "cancelled":
+                holder.bookingStatus.setText("Booking has been cancelled");
+                break;
+            default:
+                holder.bookingStatus.setText("Status: " + booking.getStatus());
+                break;
+        }
+        
         if ("pending".equalsIgnoreCase(booking.getStatus())) {
             holder.cancelBooking.setVisibility(View.VISIBLE);
         } else {

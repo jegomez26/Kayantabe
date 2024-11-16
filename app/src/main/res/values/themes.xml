@@ -30,5 +30,6 @@
 
     <!-- AppBar and Popup Overlays -->
     <style name="Theme.Kayantabe.AppBarOverlay" parent="ThemeOverlay.Material3.Dark.ActionBar" />
+
     <style name="Theme.Kayantabe.PopupOverlay" parent="ThemeOverlay.Material3.Light" />
 </resources>
