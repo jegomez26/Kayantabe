@@ -82,7 +82,7 @@ public class BookingsFragment extends Fragment {
                                     booking.setServiceProviderId(serviceProviderId);
                                     booking.setServiceProviderName(serviceProviderName);
                                     booking.setStatus(status);
-                                    booking.setBookingTimestamp(bookingTimestamp);
+                                    booking.setBookingDateTime(bookingTimestamp);
 
                                     bookingList.add(booking);
                                     bookingAdapter.notifyDataSetChanged();

@@ -51,7 +51,7 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingV
         holder.serviceName.setText(booking.getServiceName());
         holder.serviceProvider.setText(booking.getServiceProviderName());
         holder.price.setText(String.format("PHP %.2f", booking.getPrice()));
-        holder.bookingDateTime.setText("Booking Date & Time: " + booking.getBookingTimestamp());
+        holder.bookingDateTime.setText("Booking Date & Time: " + booking.getBookingDateTime());
 
         holder.bookingStatus.setText("Status: " + booking.getStatus());
         if ("pending".equalsIgnoreCase(booking.getStatus())) {
@@ -116,7 +116,7 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingV
         serviceName.setText(booking.getServiceName());
         serviceProvider.setText(booking.getServiceProviderName());
 //        description.setText(booking.getDescription());]
-        bookingDateTime.setText(booking.getBookingTimestamp());
+        bookingDateTime.setText(booking.getBookingDateTime());
         bookingStatus.setText(booking.getStatus());
 
         builder.setView(dialogView)

@@ -1,6 +1,7 @@
 package edu.sti.kayantabe;
 
 import java.util.Date;
+import java.util.List;
 
 public class Booking {
     private String bookingId;
@@ -13,6 +14,9 @@ public class Booking {
     private String imageUrl; // URL of the service image
     private double price;
     private String bookingDateTime;
+    private String employeeId;
+    private String customerName;
+    private List<String> assignedEmployees;
 
     // Constructors
     public Booking() {}
@@ -105,11 +109,35 @@ public class Booking {
         this.price = price;
     }
 
-    public String getBookingTimestamp() {
+    public String getBookingDateTime() {
         return bookingDateTime;
     }
 
-    public void setBookingTimestamp(String bookingTimestamp) {
+    public void setBookingDateTime(String bookingTimestamp) {
         this.bookingDateTime = bookingTimestamp;
+    }
+
+    public void setEmployeeId(String employeeId) {
+        this.employeeId = employeeId;
+    }
+
+    public String getEmployeeId() {
+        return employeeId;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setAssignedEmployees(List<String> assignedEmployees) {
+        this.assignedEmployees = assignedEmployees;
+    }
+
+    public List<String> getAssignedEmployees() {
+        return assignedEmployees;
     }
 }
